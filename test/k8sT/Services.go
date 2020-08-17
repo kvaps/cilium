@@ -696,8 +696,8 @@ var _ = Describe("K8sServicesTest", func() {
 
 			if helpers.GetCurrentIntegration() == helpers.CIIntegrationGKE {
 				// Testing LoadBalancer types subject to bpf_sock.
-				lbIP, err := kubectl.GetLoadBalancerIP(helpers.DefaultNamespace, "test-lb", 30*time.Second)
-				Expect(err).Should(BeNil(), "Cannot retrieve loadbalancer IP for test-lb")
+				lbIP, err := kubectl.GetLoadBalancerIP(helpers.DefaultNamespace, "test-lb-noip", 30*time.Second)
+				Expect(err).Should(BeNil(), "Cannot retrieve loadbalancer IP for test-lb-noip")
 
 				testURLsFromHosts = append(testURLsFromHosts, []string{
 					getHTTPLink(lbIP, 80),
